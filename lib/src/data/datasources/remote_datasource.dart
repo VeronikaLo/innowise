@@ -27,7 +27,7 @@ class RemoteDataSourceImpl implements RemoteDataSource{
   Future<List<PokemonListModel>> getPokemonsList(int page) async{
     
     final response = await client
-        .get(Uri.parse('https://pokeapi.co/api/v2/1pokemon/?limit=20&offset=$page'), headers: {'Content-Type': 'application/json'});
+        .get(Uri.parse('https://pokeapi.co/api/v2/pokemon/?limit=20&offset=$page'), headers: {'Content-Type': 'application/json'});
     if (response.statusCode == 200) {
       final results = json.decode(response.body);
       //print(results['results']);
