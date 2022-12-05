@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_assesment/src/presentation/bloc/bloc_list/test_bloc_bloc.dart';
 import 'package:test_assesment/src/presentation/bloc/cubit/pokemon_cubit.dart';
 import 'package:test_assesment/src/presentation/pages/home_page/home_page.dart';
+import 'package:test_assesment/utils/app_theme.dart';
 import 'injection.dart' as di;
 import 'injection.dart';
 
@@ -24,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: AppTheme.theme,
       home: MultiBlocProvider(
         providers: [
           BlocProvider(

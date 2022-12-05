@@ -47,7 +47,7 @@ class PokemonList extends StatelessWidget {
         }
 
         return Padding(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
           child: ListView.builder(
             controller: scrollController,
             physics: const BouncingScrollPhysics(),
