@@ -10,6 +10,7 @@ import 'package:test_assesment/src/domain/repositories/pokemon_repository.dart';
 import 'package:test_assesment/src/domain/usecases/usecase.dart';
 import 'package:test_assesment/src/presentation/bloc/bloc_list/test_bloc_bloc.dart';
 import 'package:test_assesment/src/presentation/bloc/cubit/pokemon_cubit.dart';
+import 'package:test_assesment/src/presentation/bloc/nav_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -17,6 +18,7 @@ Future<void> init() async {
   //Presentation
   sl.registerFactory(() => TestBlocBloc(usecases: sl()));
   sl.registerFactory(() => PokemonCubit(usecases: sl()));
+  sl.registerFactory(() => NavCubit(pokemonCubit: sl()));
 
   //Usecases
   sl.registerLazySingleton(() => UseCases(pokemonRepository: sl()));

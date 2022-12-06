@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_assesment/src/presentation/bloc/bloc_list/test_bloc_bloc.dart';
 import 'package:test_assesment/src/presentation/bloc/cubit/pokemon_cubit.dart';
+import 'package:test_assesment/src/presentation/bloc/nav_cubit.dart';
 import 'package:test_assesment/src/presentation/pages/home_page/home_page.dart';
+import 'package:test_assesment/utils/app_navigator.dart';
 import 'package:test_assesment/utils/app_theme.dart';
 import 'injection.dart' as di;
 import 'injection.dart';
@@ -32,8 +34,9 @@ class _MyAppState extends State<MyApp> {
             create: (context) => sl<TestBlocBloc>()..add(GetListEvent()),
           ),
           BlocProvider(create: (context) => sl<PokemonCubit>()),
+          BlocProvider(create: (context) => sl<NavCubit>()),
         ],
-        child: const HomePage(),
+        child: const AppNavigator(),
       ),
     );
   }

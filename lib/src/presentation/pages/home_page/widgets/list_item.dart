@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_assesment/src/presentation/bloc/cubit/pokemon_cubit.dart';
-import '../../detail_page/detail_page.dart';
+import 'package:test_assesment/src/presentation/bloc/nav_cubit.dart';
 
 class ListItem extends StatelessWidget {
   final String name;
@@ -12,16 +11,7 @@ class ListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<PokemonCubit>(context).hope(id);
-
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DetailPage(
-              id: id,
-            ),
-          ),
-        );
+        BlocProvider.of<NavCubit>(context).sendPokemon(id);
       },
       child: Container(
         width: 200,

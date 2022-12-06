@@ -7,9 +7,9 @@ import '../../bloc/cubit/pokemon_cubit.dart';
 import '../home_page/widgets/error_message.dart';
 
 class DetailPage extends StatelessWidget {
-  final int id;
+  //final int id;
   //final PokemonEntity pokemon;
-  const DetailPage({required this.id, super.key});
+  const DetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,29 +18,31 @@ class DetailPage extends StatelessWidget {
         title: const Text('Pokemon'),
         centerTitle: true,
       ),
-      body: //Text(id.toString())
-          BlocBuilder<PokemonCubit, PokemonState>(
-        builder: (context, pokState) {
-          if (pokState is PokemonInitial) {
-            return Container();
-          } else if (pokState is PokemonLoading) {
-            return const Center(
-              child: CircularProgressIndicator(
-                color: Colors.pink,
-              ),
-            );
-          } else if (pokState is PokemonLoaded) {
-            return PokemonItem(
-              pokemon: pokState.pokemon,
-            );
-          } else if (pokState is PokemonError) {
-            return ErrorMessage(
-              message: pokState.message,
-            );
-          }
-          return const Placeholder();
-        },
-      ),
+      body: Container()
+      
+      //Text(id.toString())
+      //     BlocBuilder<PokemonCubit, PokemonState>(
+      //   builder: (context, pokState) {
+      //     if (pokState is PokemonInitial) {
+      //       return Container();
+      //     } else if (pokState is PokemonLoading) {
+      //       return const Center(
+      //         child: CircularProgressIndicator(
+      //           color: Colors.pink,
+      //         ),
+      //       );
+      //     } else if (pokState is PokemonLoaded) {
+      //       return PokemonItem(
+      //         pokemon: pokState.pokemon,
+      //       );
+      //     } else if (pokState is PokemonError) {
+      //       return ErrorMessage(
+      //         message: pokState.message,
+      //       );
+      //     }
+      //     return const Placeholder();
+      //   },
+      // ),
     );
   }
 }
