@@ -13,7 +13,7 @@ part 'pokemon_state.dart';
 const CACHED_FAILURE_MESSAGE = "Ups, something went wrong. Please try again!";
 const SERVER_FAILURE_MESSAGE = "Ups, server error. Please try again!";
 
-class PokemonCubit extends Cubit<PokemonState?> {
+class PokemonCubit extends Cubit<PokemonState> {
   final UseCases usecases;
   PokemonCubit({required this.usecases}) : super(PokemonInitial());
 
@@ -23,14 +23,10 @@ class PokemonCubit extends Cubit<PokemonState?> {
     dataOrFailure.fold(
         (failure) => emit(PokemonError(message: _mapFailureToMessage(failure))),
         (data) {
-      //print(data);
+      print(data);
       emit(PokemonLoaded(pokemon: data));
     });
   }
-
-  void popToPokemonList() => emit(null);
-
-
 
   String _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
